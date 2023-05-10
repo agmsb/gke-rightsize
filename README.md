@@ -23,3 +23,14 @@ git clone https://github.com/GoogleCloudPlatform/kubernetes-engine-samples
 cd kubernetes-engine-samples/gke-vpa-recommendations
 
 ./scripts/setup.sh
+
+
+gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:mql-export-metrics@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/monitoring.viewer"
+gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:mql-export-metrics@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/bigquery.dataEditor"
+gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:mql-export-metrics@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/bigquery.dataOwner"
+gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:mql-export-metrics@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/bigquery.jobUser"
+gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:mql-export-metrics@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/run.invoker"
+
+
+gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:mql-export-metrics@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/cloudscheduler.admin"
+
